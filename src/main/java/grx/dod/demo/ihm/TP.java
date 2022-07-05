@@ -86,7 +86,14 @@ public class TP {
 	}
 
 	public static void main(String[] args) throws Exception {
-		String chemin = "src\\main\\resources\\espace.txt";
+		String os = System.getProperty("os.name");
+		String chemin;
+		if (os.equals("Linux")) {
+			chemin = "src/main/resources/espace.txt";
+		}
+		else {
+			chemin = "src\\main\\resources\\espace.txt";
+		}
 		List<Forme> formes = Objects.charger(chemin);
 		
 		UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
